@@ -1,0 +1,1662 @@
+ dpkg-buildpackage -D -us -uc -ui -b -Jauto -Pnobiarch,nocheck,nodoc
+dpkg-buildpackage: info: source package fuse
+dpkg-buildpackage: info: source version 2.9.9-1
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Laszlo Boszormenyi (GCS) <gcs@debian.org>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean
+   dh_clean
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f -- debian/fuse.substvars debian/libfuse2.substvars debian/libfuse-dev.substvars debian/fuse-udeb.substvars debian/libfuse2-udeb.substvars ./config.rpath ./util/mount_util.c debian/files
+	rm -fr -- debian/fuse/ debian/tmp/ debian/libfuse2/ debian/libfuse-dev/ debian/fuse-udeb/ debian/libfuse2-udeb/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+FAKEROOTKEY=1273136813 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
+ debian/rules build
+dh build
+   dh_update_autotools_config
+	install -d debian/.debhelper/bucket/files
+	cp -an --reflink=auto config.guess debian/.debhelper/bucket/files/8131853dbc8c3be5171fa96353de7a884a79d3f1d6b3fbf48f99037f5f95fe27.tmp
+	mv debian/.debhelper/bucket/files/8131853dbc8c3be5171fa96353de7a884a79d3f1d6b3fbf48f99037f5f95fe27.tmp debian/.debhelper/bucket/files/8131853dbc8c3be5171fa96353de7a884a79d3f1d6b3fbf48f99037f5f95fe27
+	cp -f /usr/share/misc/config.guess ./config.guess
+	cp -an --reflink=auto config.sub debian/.debhelper/bucket/files/1ee0b1581032c46aac6ebd1de74b130f35082fb45a12e9ead42ad5c775f9b64f.tmp
+	mv debian/.debhelper/bucket/files/1ee0b1581032c46aac6ebd1de74b130f35082fb45a12e9ead42ad5c775f9b64f.tmp debian/.debhelper/bucket/files/1ee0b1581032c46aac6ebd1de74b130f35082fb45a12e9ead42ad5c775f9b64f
+	cp -f /usr/share/misc/config.sub ./config.sub
+   debian/rules override_dh_autoreconf
+make[1]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+ln -s /usr/share/gettext/config.rpath /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9
+dh_autoreconf
+	find ! -ipath "./debian/*" -a ! \( -path '*/.git/*' -o -path '*/.hg/*' -o -path '*/.bzr/*' -o -path '*/.svn/*' -o -path '*/CVS/*' \) -a  -type f -exec md5sum {} + -o -type l -printf "symlink  %p
+" > debian/autoreconf.before
+	grep -q ^XDT_ configure.ac
+	autoreconf -f -i
+libtoolize: putting auxiliary files in '.'.
+libtoolize: copying file './ltmain.sh'
+libtoolize: putting macros in AC_CONFIG_MACRO_DIRS, 'm4'.
+libtoolize: copying file 'm4/libtool.m4'
+libtoolize: copying file 'm4/ltoptions.m4'
+libtoolize: copying file 'm4/ltsugar.m4'
+libtoolize: copying file 'm4/ltversion.m4'
+libtoolize: copying file 'm4/lt~obsolete.m4'
+configure.ac:10: installing './compile'
+configure.ac:6: installing './missing'
+example/Makefile.am: installing './depcomp'
+	find ! -ipath "./debian/*" -a ! \( -path '*/.git/*' -o -path '*/.hg/*' -o -path '*/.bzr/*' -o -path '*/.svn/*' -o -path '*/CVS/*' \) -a  -type f -exec md5sum {} + -o -type l -printf "symlink  %p
+" > debian/autoreconf.after
+make[1]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+	rm -f debian/fuse-udeb.debhelper.log debian/fuse.debhelper.log debian/libfuse-dev.debhelper.log debian/libfuse2-udeb.debhelper.log debian/libfuse2.debhelper.log
+   debian/rules override_dh_auto_configure
+make[1]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+dh_auto_configure -- --bindir=/bin --libdir=/usr/lib/x86_64-linux-gnu
+	./configure --build=x86_64-linux-gnu --prefix=/usr --includedir=\${prefix}/include --mandir=\${prefix}/share/man --infodir=\${prefix}/share/info --sysconfdir=/etc --localstatedir=/var --disable-silent-rules --libdir=\${prefix}/lib/x86_64-linux-gnu --libexecdir=\${prefix}/lib/x86_64-linux-gnu --runstatedir=/run --disable-maintainer-mode --disable-dependency-tracking --bindir=/bin --libdir=/usr/lib/x86_64-linux-gnu
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+configure: loading site script /usr/share/config.site
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) x86_64-pc-linux-gnu
+checking target system type... x86_64-pc-linux-gnu
+checking for a BSD-compatible install... /usr/bin/install
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... /usr/bin/gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... (cached) icc.pl
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether icc.pl accepts -g... yes
+checking for icc.pl option to accept ISO C89... (cached) -std=gnu89
+checking whether icc.pl -std=gnu89 understands -c and -o together... yes
+checking dependency style of icc.pl -std=gnu89... none
+checking for a sed that does not truncate output... /bin/sed
+checking for grep that handles long lines and -e... (cached) /bin/grep
+checking for egrep... (cached) /bin/grep -E
+checking for fgrep... /bin/grep -F
+checking for ld used by icc.pl -std=gnu89... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/x86_64-linux-gnu-nm -B
+checking the name lister (/usr/bin/x86_64-linux-gnu-nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking how to convert x86_64-pc-linux-gnu file names to x86_64-pc-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-pc-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... /usr/bin/x86_64-linux-gnu-objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... /usr/bin/x86_64-linux-gnu-strip
+checking for ranlib... (cached) ranlib
+checking command to parse /usr/bin/x86_64-linux-gnu-nm -B output from icc.pl -std=gnu89 object... ok
+checking for sysroot... no
+checking for a working dd... /bin/dd
+checking how to truncate binary pipes... /bin/dd bs=4096 count=1
+checking for mt... mt
+checking if mt is a manifest tool... no
+checking how to run the C preprocessor... icc.pl -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if icc.pl -std=gnu89 supports -fno-rtti -fno-exceptions... yes
+checking for icc.pl -std=gnu89 option to produce PIC... -fPIC -DPIC
+checking if icc.pl -std=gnu89 PIC flag -fPIC -DPIC works... yes
+checking if icc.pl -std=gnu89 static flag -static works... no
+checking if icc.pl -std=gnu89 supports -c -o file.o... yes
+checking if icc.pl -std=gnu89 supports -c -o file.o... (cached) yes
+checking whether the icc.pl -std=gnu89 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... /usr/bin/ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking for gcc... (cached) icc.pl
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether icc.pl accepts -g... (cached) yes
+checking for icc.pl option to accept ISO C89... (cached) -std=gnu89
+checking whether icc.pl -std=gnu89 understands -c and -o together... (cached) yes
+checking dependency style of icc.pl -std=gnu89... (cached) none
+checking for fork... yes
+checking for setxattr... yes
+checking for fdatasync... yes
+checking for splice... yes
+checking for vmsplice... yes
+checking for utimensat... yes
+checking for posix_fallocate... yes
+checking for struct stat.st_atim... yes
+checking for struct stat.st_atimespec... no
+checking for library containing dlopen... none required
+checking for library containing clock_gettime... none required
+checking for ld used by icc.pl -std=gnu89... /usr/bin/ld -m elf_x86_64
+checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld... yes
+checking for shared library run path origin... done
+checking for iconv... yes
+checking for working iconv... yes
+checking for iconv declaration... 
+         extern size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);
+configure: MOUNT_FUSE_PATH env var not set, using default /sbin
+configure: UDEV_RULES_PATH env var not set, using default /etc/udev/rules.d
+configure: INIT_D_PATH env var not set, using default /etc/init.d
+checking if umount supports --fake --no-canonicalize... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating fuse.pc
+config.status: creating Makefile
+config.status: creating lib/Makefile
+config.status: creating util/Makefile
+config.status: creating example/Makefile
+config.status: creating include/Makefile
+config.status: creating doc/Makefile
+config.status: creating include/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure: WARNING: unrecognized options: --disable-maintainer-mode
+make[1]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+   dh_auto_build
+	make -j8
+make[1]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+Making all in include
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/include'
+make  all-am
+make[3]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/include'
+make[3]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/include'
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/include'
+Making all in lib
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/lib'
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fuse.lo fuse.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fuse_kern_chan.lo fuse_kern_chan.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fuse_loop.lo fuse_loop.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fuse_loop_mt.lo fuse_loop_mt.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fuse_lowlevel.lo fuse_lowlevel.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fuse_mt.lo fuse_mt.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fuse_opt.lo fuse_opt.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fuse_session.lo fuse_session.c
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_mt.c  -fPIC -DPIC -o .libs/fuse_mt.o
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_loop_mt.c  -fPIC -DPIC -o .libs/fuse_loop_mt.o
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse.c  -fPIC -DPIC -o .libs/fuse.o
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_lowlevel.c  -fPIC -DPIC -o .libs/fuse_lowlevel.o
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_loop.c  -fPIC -DPIC -o .libs/fuse_loop.o
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_opt.c  -fPIC -DPIC -o .libs/fuse_opt.o
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_kern_chan.c  -fPIC -DPIC -o .libs/fuse_kern_chan.o
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_session.c  -fPIC -DPIC -o .libs/fuse_session.o
+In file included from ../include/fuse_lowlevel.h(26),
+                 from fuse_loop.c(9):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse_lowlevel.h(26),
+                 from fuse_loop.c(9):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_loop.c -o fuse_loop.o >/dev/null 2>&1
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from fuse_mt.c(9):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from fuse_mt.c(9):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+IPO: WARNING: File scope asm disables -ipo
+x86_64-linux-gnu-as: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+In file included from ../include/fuse_lowlevel.h(26),
+                 from fuse_kern_chan.c(9):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse_lowlevel.h(26),
+                 from fuse_kern_chan.c(9):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+In file included from fuse_kern_chan.c(10):
+../include/fuse_kernel.h(322): remark #271: trailing comma is nonstandard
+  	CUSE_INIT          = 4096,
+  	                         ^
+
+In file included from fuse_kern_chan.c(10):
+../include/fuse_kernel.h(332): remark #271: trailing comma is nonstandard
+  	FUSE_NOTIFY_CODE_MAX,
+  	                    ^
+
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_mt.c -o fuse_mt.o >/dev/null 2>&1
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_kern_chan.c -o fuse_kern_chan.o >/dev/null 2>&1
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from fuse_session.c(9):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from fuse_session.c(9):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+IPO: WARNING: File scope asm disables -ipo
+x86_64-linux-gnu-as: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_session.c -o fuse_session.o >/dev/null 2>&1
+In file included from ../include/fuse_lowlevel.h(26),
+                 from fuse_loop_mt.c(9):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse_lowlevel.h(26),
+                 from fuse_loop_mt.c(9):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+In file included from fuse_loop_mt.c(11):
+../include/fuse_kernel.h(322): remark #271: trailing comma is nonstandard
+  	CUSE_INIT          = 4096,
+  	                         ^
+
+In file included from fuse_loop_mt.c(11):
+../include/fuse_kernel.h(332): remark #271: trailing comma is nonstandard
+  	FUSE_NOTIFY_CODE_MAX,
+  	                    ^
+
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_loop_mt.c -o fuse_loop_mt.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fuse_signals.lo fuse_signals.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o buffer.lo buffer.c
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_signals.c  -fPIC -DPIC -o .libs/fuse_signals.o
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o cuse_lowlevel.lo cuse_lowlevel.c
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c buffer.c  -fPIC -DPIC -o .libs/buffer.o
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c cuse_lowlevel.c  -fPIC -DPIC -o .libs/cuse_lowlevel.o
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o helper.lo helper.c
+In file included from ../include/fuse_lowlevel.h(26),
+                 from fuse_signals.c(9):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse_lowlevel.h(26),
+                 from fuse_signals.c(9):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_signals.c -o fuse_signals.o >/dev/null 2>&1
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c helper.c  -fPIC -DPIC -o .libs/helper.o
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o mount.lo mount.c
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c mount.c  -fPIC -DPIC -o .libs/mount.o
+In file included from ../include/fuse_lowlevel.h(26),
+                 from ../include/cuse_lowlevel.h(19),
+                 from cuse_lowlevel.c(10):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse_lowlevel.h(26),
+                 from ../include/cuse_lowlevel.h(19),
+                 from cuse_lowlevel.c(10):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+In file included from cuse_lowlevel.c(11):
+../include/fuse_kernel.h(322): remark #271: trailing comma is nonstandard
+  	CUSE_INIT          = 4096,
+  	                         ^
+
+In file included from cuse_lowlevel.c(11):
+../include/fuse_kernel.h(332): remark #271: trailing comma is nonstandard
+  	FUSE_NOTIFY_CODE_MAX,
+  	                    ^
+
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c cuse_lowlevel.c -o cuse_lowlevel.o >/dev/null 2>&1
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from buffer.c(12):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from buffer.c(12):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+buffer.c(48): warning #1338: arithmetic on pointer to void or function type
+  			res = pwrite(dst->fd, src->mem + src_off, len,
+  			                               ^
+
+buffer.c(51): warning #1338: arithmetic on pointer to void or function type
+  			res = write(dst->fd, src->mem + src_off, len);
+  			                              ^
+
+buffer.c(82): warning #1338: arithmetic on pointer to void or function type
+  			res = pread(src->fd, dst->mem + dst_off, len,
+  			                              ^
+
+buffer.c(85): warning #1338: arithmetic on pointer to void or function type
+  			res = read(src->fd, dst->mem + dst_off, len);
+  			                             ^
+
+buffer.c(114): warning #188: enumerated type mixed with another type
+  		.flags = 0,
+  		         ^
+
+buffer.c(146): remark #2557: comparison between signed and unsigned operands
+  		if (res < this_len)
+  		        ^
+
+buffer.c(232): warning #1338: arithmetic on pointer to void or function type
+  		void *dstmem = dst->mem + dst_off;
+  		                        ^
+
+buffer.c(233): warning #1338: arithmetic on pointer to void or function type
+  		void *srcmem = src->mem + src_off;
+  		                        ^
+
+buffer.c(236): warning #1338: arithmetic on pointer to void or function type
+  			if (dstmem + len <= srcmem || srcmem + len <= dstmem)
+  			           ^
+
+buffer.c(236): warning #1338: arithmetic on pointer to void or function type
+  			if (dstmem + len <= srcmem || srcmem + len <= dstmem)
+  			                                     ^
+
+buffer.c(313): remark #2557: comparison between signed and unsigned operands
+  		if (res < len)
+  		        ^
+
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o mount_util.lo mount_util.c
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c buffer.c -o buffer.o >/dev/null 2>&1
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c mount_util.c  -fPIC -DPIC -o .libs/mount_util.o
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from helper.c(10):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from helper.c(10):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+helper.c(28): remark #271: trailing comma is nonstandard
+  	KEY_VERSION,
+  	           ^
+
+helper.c(203): warning #2218: result of call is not used
+  			read(waiter[0], &completed, sizeof(completed));
+  			^
+
+helper.c(212): warning #2218: result of call is not used
+  		(void) chdir("/");
+  		       ^
+
+helper.c(212): warning #2218: result of call is not used
+  		(void) chdir("/");
+  		^
+
+helper.c(225): warning #2218: result of call is not used
+  		write(waiter[1], &completed, sizeof(completed));
+  		^
+
+helper.c(387): remark #1419: external declaration in primary source file
+  int fuse_main(void);
+      ^
+
+IPO: WARNING: File scope asm disables -ipo
+x86_64-linux-gnu-as: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c helper.c -o helper.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o ulockmgr.lo ulockmgr.c
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o modules/subdir.lo modules/subdir.c
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c ulockmgr.c  -fPIC -DPIC -o .libs/ulockmgr.o
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from mount.c(10):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from mount.c(10):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+mount.c(62): remark #271: trailing comma is nonstandard
+  	KEY_VERSION,
+  	           ^
+
+mount.c(475): remark #981: operands are evaluated in unspecified order
+  		 fd, stbuf.st_mode & S_IFMT, getuid(), getgid());
+  		                                       ^
+
+mount.c(474): remark #981: operands are evaluated in unspecified order
+  	snprintf(tmp, sizeof(tmp),  "fd=%i,rootmode=%o,user_id=%u,group_id=%u",
+  	^
+
+mount.c(481): remark #981: operands are evaluated in unspecified order
+  	source = malloc((mo->fsname ? strlen(mo->fsname) : 0) +
+  	                                                      ^
+
+mount.c(482): remark #981: operands are evaluated in unspecified order
+  			(mo->subtype ? strlen(mo->subtype) : 0) +
+  			                                        ^
+
+IPO: WARNING: File scope asm disables -ipo
+x86_64-linux-gnu-as: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+mount_util.c(62): warning #2218: result of call is not used
+  			setreuid(0, -1);
+  			^
+
+mount_util.c(67): warning #2218: result of call is not used
+  			setreuid(ruid, -1);
+  			^
+
+mount_util.c(102): warning #2218: result of call is not used
+  		setuid(geteuid());
+  		^
+
+mount_util.c(155): warning #2218: result of call is not used
+  		setuid(geteuid());
+  		^
+
+mount_util.c(221): warning #2218: result of call is not used
+  		setuid(geteuid());
+  		^
+
+mount_util.c(300): remark #981: operands are evaluated in unspecified order
+  		dst = (char *) malloc(strlen(buf) + 1 + strlen(lastcomp) + 1);
+  		                                      ^
+
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c mount.c -o mount.o >/dev/null 2>&1
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c mount_util.c -o mount_util.o >/dev/null 2>&1
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c modules/subdir.c  -fPIC -DPIC -o modules/.libs/subdir.o
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from fuse_lowlevel.c(12):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from fuse_lowlevel.c(12):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+In file included from fuse_lowlevel.c(13):
+../include/fuse_kernel.h(322): remark #271: trailing comma is nonstandard
+  	CUSE_INIT          = 4096,
+  	                         ^
+
+In file included from fuse_lowlevel.c(13):
+../include/fuse_kernel.h(332): remark #271: trailing comma is nonstandard
+  	FUSE_NOTIFY_CODE_MAX,
+  	                    ^
+
+fuse_lowlevel.c(459): warning #188: enumerated type mixed with another type
+  	res = fuse_buf_copy(&mem_buf, buf, 0);
+  	                                   ^
+
+fuse_lowlevel.c(632): warning #188: enumerated type mixed with another type
+  			    FUSE_BUF_FORCE_SPLICE | FUSE_BUF_SPLICE_NONBLOCK);
+  			    ^
+
+fuse_lowlevel.c(656): remark #2557: comparison between signed and unsigned operands
+  	if (res != 0 && res < len) {
+  	                    ^
+
+fuse_lowlevel.c(675): warning #188: enumerated type mixed with another type
+  		res = fuse_buf_copy(&mem_buf, buf, 0);
+  		                                   ^
+
+fuse_lowlevel.c(1489): remark #2259: non-pointer conversion from "__u32={unsigned int}" to "short" may lose significant bits
+  	flock->l_type = fl->type;
+  	              ^
+
+fuse_lowlevel.c(1871): remark #2259: non-pointer conversion from "unsigned int" to "__u16={unsigned short}" may lose significant bits
+  		outarg.max_background = f->conn.max_background;
+  		                      ^
+
+fuse_lowlevel.c(1872): remark #2259: non-pointer conversion from "unsigned int" to "__u16={unsigned short}" may lose significant bits
+  		outarg.congestion_threshold = f->conn.congestion_threshold;
+  		                            ^
+
+fuse_lowlevel.c(2212): remark #1419: external declaration in primary source file
+  const struct fuse_ctx *fuse_req_ctx_compat24(fuse_req_t req);
+                         ^
+
+fuse_lowlevel.c(2307): warning #188: enumerated type mixed with another type
+  	int res = fuse_buf_copy(dst, src, 0);
+  	                                  ^
+
+fuse_lowlevel.c(2312): remark #2557: comparison between signed and unsigned operands
+  	if (res < fuse_buf_size(dst)) {
+  	        ^
+
+fuse_lowlevel.c(2427): warning #1338: arithmetic on pointer to void or function type
+  		tmpbuf.buf[0].mem = mbuf + write_header_size;
+  		                         ^
+
+fuse_lowlevel.c(2470): remark #271: trailing comma is nonstandard
+  	KEY_VERSION,
+  	           ^
+
+fuse_lowlevel.c(2628): remark #2557: comparison between signed and unsigned operands
+  	if (res < sizeof(struct fuse_in_header)) {
+  	        ^
+
+fuse_lowlevel.c(2644): remark #2557: comparison between signed and unsigned operands
+  	if (res < sizeof(struct fuse_in_header) +
+  	        ^
+
+fuse_lowlevel.c(2649): warning #188: enumerated type mixed with another type
+  		res = fuse_buf_copy(&dst, &src, 0);
+  		                                ^
+
+fuse_lowlevel.c(2656): remark #2557: comparison between signed and unsigned operands
+  		if (res < tmpbuf.size) {
+  		        ^
+
+IPO: WARNING: File scope asm disables -ipo
+x86_64-linux-gnu-as: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_lowlevel.c -o fuse_lowlevel.o >/dev/null 2>&1
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c ulockmgr.c -o ulockmgr.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=compile icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o modules/iconv.lo modules/iconv.c
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c modules/iconv.c  -fPIC -DPIC -o modules/.libs/iconv.o
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -pthread -version-number 1:0:1 -Wl,-z,now -o libulockmgr.la -rpath /usr/lib/x86_64-linux-gnu ulockmgr.lo  
+libtool: link: icc.pl -std=gnu89 -shared  -fPIC -DPIC  .libs/ulockmgr.o    -g -O2 -march=native -pthread -Wl,-z -Wl,now   -pthread -Wl,-soname -Wl,libulockmgr.so.1 -o .libs/libulockmgr.so.1.0.1
+ipo: remark #11001: performing single-file optimizations
+In file included from ../include/fuse.h(26),
+                 from modules/subdir.c(11):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from modules/subdir.c(11):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+modules/subdir.c(697): remark #424: extra ";" ignored
+  FUSE_REGISTER_MODULE(subdir, subdir_new);
+                                          ^
+
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c modules/subdir.c -o modules/subdir.o >/dev/null 2>&1
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccMI8V6s.o
+fuse_opt.c(95): remark #1419: external declaration in primary source file
+  int fuse_opt_insert_arg_compat(struct fuse_args *args, int pos,
+      ^
+
+fuse_opt.c(236): warning #1338: arithmetic on pointer to void or function type
+  		void *var = ctx->data + opt->offset;
+  		                      ^
+
+fuse_opt.c(317): remark #2259: non-pointer conversion from "int" to "char" may lose significant bits
+  					*d++ = (s[0] - '0') * 0100 +
+  					     ^
+
+IPO: WARNING: File scope asm disables -ipo
+x86_64-linux-gnu-as: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse_opt.c -o fuse_opt.o >/dev/null 2>&1
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: link: (cd ".libs" && rm -f "libulockmgr.so.1" && ln -s "libulockmgr.so.1.0.1" "libulockmgr.so.1")
+libtool: link: (cd ".libs" && rm -f "libulockmgr.so" && ln -s "libulockmgr.so.1.0.1" "libulockmgr.so")
+libtool: link: xiar.pl cru .libs/libulockmgr.a  ulockmgr.o
+xiar: executing 'ar'
+ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: ranlib .libs/libulockmgr.a
+ranlib: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: link: ( cd ".libs" && rm -f "libulockmgr.la" && ln -s "../libulockmgr.la" "libulockmgr.la" )
+In file included from ../include/fuse.h(26),
+                 from modules/iconv.c(11):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from modules/iconv.c(11):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+modules/iconv.c(739): remark #424: extra ";" ignored
+  FUSE_REGISTER_MODULE(iconv, iconv_new);
+                                        ^
+
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c modules/iconv.c -o modules/iconv.o >/dev/null 2>&1
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from fuse.c(14):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from fuse_i.h(9),
+                 from fuse.c(14):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+In file included from fuse.c(20):
+../include/fuse_kernel.h(322): remark #271: trailing comma is nonstandard
+  	CUSE_INIT          = 4096,
+  	                         ^
+
+In file included from fuse.c(20):
+../include/fuse_kernel.h(332): remark #271: trailing comma is nonstandard
+  	FUSE_NOTIFY_CODE_MAX,
+  	                    ^
+
+fuse.c(1898): remark #2557: comparison between signed and unsigned operands
+  		if (res >= 0 && fuse_buf_size(*bufp) > (int) size)
+  		                                     ^
+
+fuse.c(1921): warning #188: enumerated type mixed with another type
+  		res = fuse_buf_copy(&dst, buf, 0);
+  		                               ^
+
+fuse.c(1964): warning #188: enumerated type mixed with another type
+  				res = fuse_buf_copy(&tmp, buf, 0);
+  				                               ^
+
+fuse.c(2765): remark #1572: floating-point equality and inequality comparisons are unreliable
+  		if (err == -ENOENT && f->conf.negative_timeout != 0.0) {
+  		                                                  ^
+
+fuse.c(3923): remark #2259: non-pointer conversion from "int" to "short" may lose significant bits
+  	flock->l_type = lock->type;
+  	              ^
+
+fuse.c(4446): remark #1419: external declaration in primary source file
+  struct fuse_context *fuse_get_context_compat22(void);
+                       ^
+
+fuse.c(4473): remark #271: trailing comma is nonstandard
+  	KEY_HELP,
+  	        ^
+
+fuse.c(4680): remark #111: statement is unreachable
+  	return NULL;
+  	^
+
+IPO: WARNING: File scope asm disables -ipo
+x86_64-linux-gnu-as: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: compile:  icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include -I../include -DFUSERMOUNT_DIR=\"/bin\" -D_FILE_OFFSET_BITS=64 -D_REENTRANT -DFUSE_USE_VERSION=26 -Wdate-time -D_FORTIFY_SOURCE=2 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c fuse.c -o fuse.o >/dev/null 2>&1
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -pthread   -version-number 2:9:9 -Wl,--version-script,./fuse_versionscript -Wl,-z,now -o libfuse.la -rpath /usr/lib/x86_64-linux-gnu fuse.lo fuse_kern_chan.lo fuse_loop.lo fuse_loop_mt.lo fuse_lowlevel.lo fuse_mt.lo fuse_opt.lo fuse_session.lo fuse_signals.lo buffer.lo cuse_lowlevel.lo helper.lo modules/subdir.lo modules/iconv.lo mount.lo mount_util.lo  
+libtool: link: icc.pl -std=gnu89 -shared  -fPIC -DPIC  .libs/fuse.o .libs/fuse_kern_chan.o .libs/fuse_loop.o .libs/fuse_loop_mt.o .libs/fuse_lowlevel.o .libs/fuse_mt.o .libs/fuse_opt.o .libs/fuse_session.o .libs/fuse_signals.o .libs/buffer.o .libs/cuse_lowlevel.o .libs/helper.o modules/.libs/subdir.o modules/.libs/iconv.o .libs/mount.o .libs/mount_util.o    -g -O2 -march=native -pthread -Wl,--version-script -Wl,./fuse_versionscript -Wl,-z -Wl,now   -pthread -Wl,-soname -Wl,libfuse.so.2 -o .libs/libfuse.so.2.9.9
+ipo: warning #11003: no IR in object file .libs/fuse.o; was the source file compiled with -ipo
+ipo: warning #11003: no IR in object file .libs/fuse_lowlevel.o; was the source file compiled with -ipo
+ipo: warning #11003: no IR in object file .libs/fuse_mt.o; was the source file compiled with -ipo
+ipo: warning #11003: no IR in object file .libs/fuse_opt.o; was the source file compiled with -ipo
+ipo: warning #11003: no IR in object file .libs/fuse_session.o; was the source file compiled with -ipo
+ipo: warning #11003: no IR in object file .libs/helper.o; was the source file compiled with -ipo
+ipo: warning #11003: no IR in object file .libs/mount.o; was the source file compiled with -ipo
+ipo: remark #11000: performing multi-file optimizations
+ipo: remark #11006: generating object file /tmp/intel/ipo_icccrTtbD.o
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: link: (cd ".libs" && rm -f "libfuse.so.2" && ln -s "libfuse.so.2.9.9" "libfuse.so.2")
+libtool: link: (cd ".libs" && rm -f "libfuse.so" && ln -s "libfuse.so.2.9.9" "libfuse.so")
+libtool: link: xiar.pl cru .libs/libfuse.a  fuse.o fuse_kern_chan.o fuse_loop.o fuse_loop_mt.o fuse_lowlevel.o fuse_mt.o fuse_opt.o fuse_session.o fuse_signals.o buffer.o cuse_lowlevel.o helper.o modules/subdir.o modules/iconv.o mount.o mount_util.o
+xiar: executing 'ar'
+ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+ar: `u' modifier ignored since `D' is the default (see `U')
+libtool: link: ranlib .libs/libfuse.a
+ranlib: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: link: ( cd ".libs" && rm -f "libfuse.la" && ln -s "../libfuse.la" "libfuse.la" )
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/lib'
+Making all in util
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+make  all-am
+make[3]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../lib -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fusermount-fusermount.o `test -f 'fusermount.c' || echo './'`fusermount.c
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../lib -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fusermount-mount_util.o `test -f 'mount_util.c' || echo './'`mount_util.c
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -D_FILE_OFFSET_BITS=64 -D_REENTRANT  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o ulockmgr_server-ulockmgr_server.o `test -f 'ulockmgr_server.c' || echo './'`ulockmgr_server.c
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -D_FILE_OFFSET_BITS=64  -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o mount.fuse.o mount.fuse.c
+mount_util.c(62): warning #2218: result of call is not used
+  			setreuid(0, -1);
+  			^
+
+mount_util.c(67): warning #2218: result of call is not used
+  			setreuid(ruid, -1);
+  			^
+
+mount_util.c(102): warning #2218: result of call is not used
+  		setuid(geteuid());
+  		^
+
+mount_util.c(155): warning #2218: result of call is not used
+  		setuid(geteuid());
+  		^
+
+mount_util.c(221): warning #2218: result of call is not used
+  		setuid(geteuid());
+  		^
+
+mount_util.c(300): remark #981: operands are evaluated in unspecified order
+  		dst = (char *) malloc(strlen(buf) + 1 + strlen(lastcomp) + 1);
+  		                                      ^
+
+ulockmgr_server.c(371): warning #2218: result of call is not used
+  	(void) chdir("/");
+  	       ^
+
+ulockmgr_server.c(371): warning #2218: result of call is not used
+  	(void) chdir("/");
+  	^
+
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -pthread -Wl,-z,now -o ulockmgr_server ulockmgr_server-ulockmgr_server.o  
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o mount.fuse mount.fuse.o  
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -pthread -Wl,-z -Wl,now -o ulockmgr_server ulockmgr_server-ulockmgr_server.o  -pthread
+ipo: warning #11021: unresolved __open_missing_mode
+        Referenced in /tmp/intel/ipo_iccrm70px.o
+ipo: warning #11021: unresolved __open_too_many_args
+        Referenced in /tmp/intel/ipo_iccrm70px.o
+ipo: remark #11001: performing single-file optimizations
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o mount.fuse mount.fuse.o 
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccrm70px.o
+ipo: remark #11001: performing single-file optimizations
+ipo: remark #11006: generating object file /tmp/intel/ipo_icc6vAbNP.o
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+fusermount.c(717): remark #2557: comparison between signed and unsigned operands
+  	for (i = 0; i < len; i++) {
+  	              ^
+
+fusermount.c(718): remark #2557: comparison between signed and unsigned operands
+  		if (s[i] == '\\' && i + 1 < len)
+  		                          ^
+
+fusermount.c(833): remark #981: operands are evaluated in unspecified order
+  		fd, rootmode, getuid(), getgid());
+  		                        ^
+
+fusermount.c(832): remark #981: operands are evaluated in unspecified order
+  	sprintf(d, "fd=%i,rootmode=%o,user_id=%u,group_id=%u",
+  	^
+
+fusermount.c(839): remark #981: operands are evaluated in unspecified order
+  	source = malloc((fsname ? strlen(fsname) : 0) +
+  	                                              ^
+
+fusermount.c(840): remark #981: operands are evaluated in unspecified order
+  			(subtype ? strlen(subtype) : 0) + strlen(dev) + 32);
+  			                                ^
+
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o fusermount fusermount-fusermount.o fusermount-mount_util.o  
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o fusermount fusermount-fusermount.o fusermount-mount_util.o 
+ipo: warning #11021: unresolved __open_missing_mode
+        Referenced in /tmp/intel/ipo_icc0KJMBD.o
+ipo: warning #11021: unresolved __open_too_many_args
+        Referenced in /tmp/intel/ipo_icc0KJMBD.o
+ipo: remark #11000: performing multi-file optimizations
+ipo: remark #11006: generating object file /tmp/intel/ipo_icc0KJMBD.o
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+make[3]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+Making all in example
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/example'
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -D_FILE_OFFSET_BITS=64 -D_REENTRANT -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fusexmp.o fusexmp.c
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -D_FILE_OFFSET_BITS=64 -D_REENTRANT -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fusexmp_fh.o fusexmp_fh.c
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -D_FILE_OFFSET_BITS=64 -D_REENTRANT -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o null.o null.c
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -D_FILE_OFFSET_BITS=64 -D_REENTRANT -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o hello.o hello.c
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -D_FILE_OFFSET_BITS=64 -D_REENTRANT -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o hello_ll.o hello_ll.c
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -D_FILE_OFFSET_BITS=64 -D_REENTRANT -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fioc.o fioc.c
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fioclient-fioclient.o `test -f 'fioclient.c' || echo './'`fioclient.c
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -D_FILE_OFFSET_BITS=64 -D_REENTRANT -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fsel.o fsel.c
+In file included from ../include/fuse.h(26),
+                 from null.c(13):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from null.c(13):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+null.c(65): remark #2557: comparison between signed and unsigned operands
+  	if (offset >= (1ULL << 32))
+  	           ^
+
+In file included from ../include/fuse.h(26),
+                 from hello.c(13):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from hello.c(13):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+hello.c(76): remark #2557: comparison between signed and unsigned operands
+  	if (offset < len) {
+  	           ^
+
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include   -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o fselclient-fselclient.o `test -f 'fselclient.c' || echo './'`fselclient.c
+icc.pl -std=gnu89 -DHAVE_CONFIG_H -I. -I../include  -I../include -D_FILE_OFFSET_BITS=64 -D_REENTRANT -Wdate-time -D_FORTIFY_SOURCE=2  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -c -o cusexmp.o cusexmp.c
+In file included from fioclient.c(20):
+fioc.h(23): remark #271: trailing comma is nonstandard
+  	FIOC_WRITE	= _IO('E', 3),
+  	          	             ^
+
+fioclient.c(80): remark #2259: non-pointer conversion from "int" to "char" may lose significant bits
+  	cmd = tolower(argv[2][0]);
+  	    ^
+
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o null null.o ../lib/libfuse.la 
+In file included from ../include/fuse_lowlevel.h(26),
+                 from hello_ll.c(13):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse_lowlevel.h(26),
+                 from hello_ll.c(13):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+hello_ll.c(100): remark #2557: comparison between signed and unsigned operands
+  	if (off < bufsize)
+  	        ^
+
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o hello hello.o ../lib/libfuse.la 
+In file included from ../include/fuse.h(26),
+                 from fioc.c(14):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from fioc.c(14):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+In file included from fioc.c(22):
+fioc.h(23): remark #271: trailing comma is nonstandard
+  	FIOC_WRITE	= _IO('E', 3),
+  	          	             ^
+
+fioc.c(29): remark #271: trailing comma is nonstandard
+  	FIOC_FILE,
+  	         ^
+
+fioc.c(47): warning #1338: arithmetic on pointer to void or function type
+  		memset(new_buf + fioc_size, 0, new_size - fioc_size);
+  		               ^
+
+fioc.c(105): remark #2557: comparison between signed and unsigned operands
+  	if (offset >= fioc_size)
+  	           ^
+
+fioc.c(111): warning #1338: arithmetic on pointer to void or function type
+  	memcpy(buf, fioc_buf + offset, size);
+  	                     ^
+
+fioc.c(132): warning #1338: arithmetic on pointer to void or function type
+  	memcpy(fioc_buf + offset, buf, size);
+  	                ^
+
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o hello_ll hello_ll.o ../lib/libfuse.la 
+In file included from ../include/fuse.h(26),
+                 from fsel.c(14):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from fsel.c(14):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+fsel.c(218): remark #2557: comparison between signed and unsigned operands
+  		for (i = 0, t = idx; i < nr;
+  		                       ^
+
+fsel.c(245): remark #111: statement is unreachable
+  	return NULL;
+  	^
+
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o fioc fioc.o ../lib/libfuse.la 
+In file included from ../include/fuse.h(26),
+                 from fusexmp.c(23):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from fusexmp.c(23):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o fioclient fioclient-fioclient.o  
+In file included from ../include/fuse.h(26),
+                 from fusexmp_fh.c(20):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse.h(26),
+                 from fusexmp_fh.c(20):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+fusexmp_fh.c(350): warning #188: enumerated type mixed with another type
+  	src->buf[0].flags = FUSE_BUF_IS_FD | FUSE_BUF_FD_SEEK;
+  	                  ^
+
+fusexmp_fh.c(379): warning #188: enumerated type mixed with another type
+  	dst.buf[0].flags = FUSE_BUF_IS_FD | FUSE_BUF_FD_SEEK;
+  	                 ^
+
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o fsel fsel.o ../lib/libfuse.la 
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o .libs/null null.o  ../lib/.libs/libfuse.so -pthread
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o .libs/hello hello.o  ../lib/.libs/libfuse.so -pthread
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o .libs/hello_ll hello_ll.o  ../lib/.libs/libfuse.so -pthread
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o fioclient fioclient-fioclient.o 
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o fusexmp fusexmp.o ../lib/libfuse.la 
+In file included from ../include/fuse_lowlevel.h(26),
+                 from ../include/cuse_lowlevel.h(19),
+                 from cusexmp.c(14):
+../include/fuse_common.h(294): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_FD_RETRY	= (1 << 3),
+  	                 	          ^
+
+In file included from ../include/fuse_lowlevel.h(26),
+                 from ../include/cuse_lowlevel.h(19),
+                 from cusexmp.c(14):
+../include/fuse_common.h(336): remark #271: trailing comma is nonstandard
+  	FUSE_BUF_SPLICE_NONBLOCK= (1 << 4),
+  	                                  ^
+
+In file included from cusexmp.c(23):
+fioc.h(23): remark #271: trailing comma is nonstandard
+  	FIOC_WRITE	= _IO('E', 3),
+  	          	             ^
+
+cusexmp.c(50): warning #1338: arithmetic on pointer to void or function type
+  		memset(new_buf + cusexmp_size, 0, new_size - cusexmp_size);
+  		               ^
+
+cusexmp.c(75): remark #2557: comparison between signed and unsigned operands
+  	if (off >= cusexmp_size)
+  	        ^
+
+cusexmp.c(80): warning #1338: arithmetic on pointer to void or function type
+  	fuse_reply_buf(req, cusexmp_buf + off, size);
+  	                                ^
+
+cusexmp.c(93): warning #1338: arithmetic on pointer to void or function type
+  	memcpy(cusexmp_buf + off, buf, size);
+  	                   ^
+
+cusexmp.c(112): warning #1338: arithmetic on pointer to void or function type
+  	in_buf += sizeof(*arg);
+  	       ^
+
+cusexmp.c(117): warning #1338: arithmetic on pointer to void or function type
+  		addr + (unsigned long)&(((struct fioc_rw_arg *)0)->prev_size);
+  		     ^
+
+cusexmp.c(121): warning #1338: arithmetic on pointer to void or function type
+  		addr + (unsigned long)&(((struct fioc_rw_arg *)0)->new_size);
+  		     ^
+
+cusexmp.c(158): warning #1338: arithmetic on pointer to void or function type
+  		iov[2].iov_base = cusexmp_buf + off;
+  		                              ^
+
+cusexmp.c(167): warning #1338: arithmetic on pointer to void or function type
+  		memcpy(cusexmp_buf + arg->offset, in_buf, in_bufsz);
+  		                   ^
+
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o .libs/fioc fioc.o  ../lib/.libs/libfuse.so -pthread
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o fusexmp_fh fusexmp_fh.o ../lib/libfuse.la ../lib/libulockmgr.la 
+ipo: remark #11001: performing single-file optimizations
+ipo: remark #11006: generating object file /tmp/intel/ipo_icc0YnKYk.o
+ipo: remark #11001: performing single-file optimizations
+ipo: warning #11021: unresolved __open_missing_mode
+        Referenced in /tmp/intel/ipo_icchrYJ1X.o
+ipo: warning #11021: unresolved __open_too_many_args
+        Referenced in /tmp/intel/ipo_icchrYJ1X.o
+ipo: remark #11001: performing single-file optimizations
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccANXPup.o
+ipo: remark #11006: generating object file /tmp/intel/ipo_icchrYJ1X.o
+ipo: remark #11001: performing single-file optimizations
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o .libs/fsel fsel.o  ../lib/.libs/libfuse.so -pthread
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccKWNsAs.o
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+ipo: remark #11001: performing single-file optimizations
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccWFsewx.o
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o .libs/fusexmp fusexmp.o  ../lib/.libs/libfuse.so -pthread
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o fselclient fselclient-fselclient.o  
+ipo: remark #11001: performing single-file optimizations
+ipo: remark #11006: generating object file /tmp/intel/ipo_icceohruL.o
+/bin/bash ../libtool  --tag=CC   --mode=link icc.pl -std=gnu89  -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security  -Wl,-z,now -o cusexmp cusexmp.o ../lib/libfuse.la 
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o .libs/fusexmp_fh fusexmp_fh.o  ../lib/.libs/libfuse.so ../lib/.libs/libulockmgr.so -pthread
+ipo: warning #11021: unresolved __open_missing_mode
+        Referenced in /tmp/intel/ipo_icc7npATU.o
+ipo: warning #11021: unresolved __open_too_many_args
+        Referenced in /tmp/intel/ipo_icc7npATU.o
+ipo: remark #11001: performing single-file optimizations
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+ipo: remark #11006: generating object file /tmp/intel/ipo_icc7npATU.o
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o fselclient fselclient-fselclient.o 
+ipo: warning #11021: unresolved __open_missing_mode
+        Referenced in /tmp/intel/ipo_iccu2h2lF.o
+ipo: warning #11021: unresolved __open_too_many_args
+        Referenced in /tmp/intel/ipo_iccu2h2lF.o
+ipo: remark #11001: performing single-file optimizations
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccu2h2lF.o
+libtool: link: icc.pl -std=gnu89 -g -O2 -fdebug-prefix-map=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9=. -Wformat -march=native -pipe -Wformat-security -Wl,-z -Wl,now -o .libs/cusexmp cusexmp.o  ../lib/.libs/libfuse.so -pthread
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+ipo: warning #11021: unresolved __open_missing_mode
+        Referenced in /tmp/intel/ipo_iccf14Q0M.o
+ipo: warning #11021: unresolved __open_too_many_args
+        Referenced in /tmp/intel/ipo_iccf14Q0M.o
+ipo: remark #11001: performing single-file optimizations
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccf14Q0M.o
+ipo: remark #11001: performing single-file optimizations
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+ipo: remark #11006: generating object file /tmp/intel/ipo_iccxYNdGx.o
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/example'
+Making all in doc
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/doc'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/doc'
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+make[2]: Nothing to be done for 'all-am'.
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+make[1]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+   dh_auto_test
+   create-stamp debian/debhelper-build-stamp
+ fakeroot debian/rules binary
+dh binary
+   dh_testroot
+   dh_prep
+	rm -f -- debian/fuse.substvars debian/libfuse2.substvars debian/libfuse-dev.substvars debian/fuse-udeb.substvars debian/libfuse2-udeb.substvars
+	rm -fr -- debian/.debhelper/generated/fuse/ debian/fuse/ debian/tmp/ debian/.debhelper/generated/libfuse2/ debian/libfuse2/ debian/.debhelper/generated/libfuse-dev/ debian/libfuse-dev/ debian/.debhelper/generated/fuse-udeb/ debian/fuse-udeb/ debian/.debhelper/generated/libfuse2-udeb/ debian/libfuse2-udeb/
+   dh_auto_install
+	install -d /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp
+	make -j1 install DESTDIR=/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp AM_UPDATE_INFO_DIR=no
+make[1]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+Making install in include
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/include'
+make[3]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/include'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/include/fuse'
+ /usr/bin/install -m 644 fuse.h fuse_compat.h fuse_common.h fuse_common_compat.h fuse_lowlevel.h fuse_lowlevel_compat.h fuse_opt.h cuse_lowlevel.h '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/include/fuse'
+ /bin/mkdir -p '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/include'
+ /usr/bin/install -m 644 old/fuse.h ulockmgr.h '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/include'
+make[3]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/include'
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/include'
+Making install in lib
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/lib'
+make[3]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/lib'
+ /bin/mkdir -p '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu'
+ /bin/bash ../libtool   --mode=install /usr/bin/install   libfuse.la libulockmgr.la '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu'
+libtool: install: /usr/bin/install .libs/libfuse.so.2.9.9 /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.so.2.9.9
+libtool: install: (cd /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu && { ln -s -f libfuse.so.2.9.9 libfuse.so.2 || { rm -f libfuse.so.2 && ln -s libfuse.so.2.9.9 libfuse.so.2; }; })
+libtool: install: (cd /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu && { ln -s -f libfuse.so.2.9.9 libfuse.so || { rm -f libfuse.so && ln -s libfuse.so.2.9.9 libfuse.so; }; })
+libtool: install: /usr/bin/install .libs/libfuse.lai /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.la
+libtool: install: /usr/bin/install .libs/libulockmgr.so.1.0.1 /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.so.1.0.1
+libtool: install: (cd /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu && { ln -s -f libulockmgr.so.1.0.1 libulockmgr.so.1 || { rm -f libulockmgr.so.1 && ln -s libulockmgr.so.1.0.1 libulockmgr.so.1; }; })
+libtool: install: (cd /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu && { ln -s -f libulockmgr.so.1.0.1 libulockmgr.so || { rm -f libulockmgr.so && ln -s libulockmgr.so.1.0.1 libulockmgr.so; }; })
+libtool: install: /usr/bin/install .libs/libulockmgr.lai /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.la
+libtool: install: /usr/bin/install .libs/libfuse.a /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.a
+libtool: install: chmod 644 /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.a
+libtool: install: ranlib /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.a
+ranlib: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: install: /usr/bin/install .libs/libulockmgr.a /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.a
+libtool: install: chmod 644 /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.a
+libtool: install: ranlib /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.a
+ranlib: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+libtool: warning: remember to run 'libtool --finish /usr/lib/x86_64-linux-gnu'
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/lib'
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/lib'
+Making install in util
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+make  install-am
+make[3]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+make[4]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+ /bin/mkdir -p '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/bin'
+  /bin/bash ../libtool   --mode=install /usr/bin/install fusermount ulockmgr_server '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/bin'
+libtool: install: /usr/bin/install fusermount /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/bin/fusermount
+libtool: install: /usr/bin/install ulockmgr_server /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/bin/ulockmgr_server
+/bin/mkdir -p /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/sbin
+/usr/bin/install ./mount.fuse /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/sbin/mount.fuse
+/bin/mkdir -p /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/etc/init.d
+/usr/bin/install ./init_script /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/etc/init.d/fuse
+/usr/sbin/update-rc.d fuse start 34 S . start 41 0 6 . || true
+make  install-exec-hook
+make[5]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+chmod u+s /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/bin/fusermount
+mknod /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/dev/fuse -m 0666 c 10 229 || true
+make[5]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+/bin/mkdir -p /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/etc/udev/rules.d
+/usr/bin/install -m 644 ./udev.rules /dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/etc/udev/rules.d/99-fuse.rules
+make[4]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+make[3]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/util'
+Making install in example
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/example'
+make[3]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/example'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/example'
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/example'
+Making install in doc
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/doc'
+make[3]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/doc'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/share/man/man1'
+ /usr/bin/install -m 644 fusermount.1 ulockmgr_server.1 '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/share/man/man1'
+ /bin/mkdir -p '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/share/man/man8'
+ /usr/bin/install -m 644 mount.fuse.8 '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/share/man/man8'
+make[3]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/doc'
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/doc'
+make[2]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+make[3]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+make[3]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig'
+ /usr/bin/install -m 644 fuse.pc '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9/debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig'
+make[3]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+make[2]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+make[1]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+	rm -f debian/fuse-udeb.debhelper.log debian/fuse.debhelper.log debian/libfuse-dev.debhelper.log debian/libfuse2-udeb.debhelper.log debian/libfuse2.debhelper.log
+   debian/rules override_dh_install
+make[1]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+# remove unused files
+rm -f debian/tmp/etc/init.d/fuse
+rm -f debian/tmp/etc/udev/rules.d/99-fuse.rules
+rm -f debian/tmp/usr/lib/*/*.la
+dh_install --fail-missing
+dh_install: Please use dh_missing --list-missing/--fail-missing instead
+dh_install: This feature will be removed in compat 12.
+	install -d debian/fuse//bin
+	cp --reflink=auto -a debian/tmp/bin/fusermount debian/tmp/bin/ulockmgr_server debian/fuse//bin/
+	install -d debian/fuse//etc
+	cp --reflink=auto -a ./debian/local/fuse.conf debian/fuse//etc/
+	install -d debian/fuse//sbin
+	cp --reflink=auto -a debian/tmp/sbin/mount.fuse debian/fuse//sbin/
+	install -d debian/fuse//usr/share/man/man1
+	cp --reflink=auto -a debian/tmp/usr/share/man/man1/fusermount.1 debian/tmp/usr/share/man/man1/ulockmgr_server.1 debian/fuse//usr/share/man/man1/
+	install -d debian/fuse//usr/share/man/man8
+	cp --reflink=auto -a debian/tmp/usr/share/man/man8/mount.fuse.8 debian/fuse//usr/share/man/man8/
+	install -d debian/.debhelper/generated/fuse
+	install -d debian/libfuse2/lib
+	cp --reflink=auto -a debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.so.2 debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.so.2.9.9 debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.so.1 debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.so.1.0.1 debian/libfuse2/lib/
+	install -d debian/.debhelper/generated/libfuse2
+	install -d debian/libfuse-dev//usr
+	cp --reflink=auto -a debian/tmp/usr/include debian/libfuse-dev//usr/
+	install -d debian/libfuse-dev//usr/lib/x86_64-linux-gnu
+	cp --reflink=auto -a debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.a debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.so debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.a debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.so debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig debian/libfuse-dev//usr/lib/x86_64-linux-gnu/
+	install -d debian/.debhelper/generated/libfuse-dev
+	install -d debian/fuse-udeb//bin
+	cp --reflink=auto -a debian/tmp/bin/fusermount debian/tmp/bin/ulockmgr_server debian/fuse-udeb//bin/
+	install -d debian/fuse-udeb//sbin
+	cp --reflink=auto -a debian/tmp/sbin/mount.fuse debian/fuse-udeb//sbin/
+	install -d debian/.debhelper/generated/fuse-udeb
+	install -d debian/libfuse2-udeb/lib
+	cp --reflink=auto -a debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.so.2 debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.so.2.9.9 debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.so.1 debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.so.1.0.1 debian/libfuse2-udeb/lib/
+	install -d debian/.debhelper/generated/libfuse2-udeb
+	dh_missing --fail-missing
+# adjusting /lib for multiarch
+mkdir -p debian/libfuse2/lib/x86_64-linux-gnu
+mv debian/libfuse2/lib/*.so* debian/libfuse2/lib/x86_64-linux-gnu
+mkdir -p debian/libfuse2-udeb/lib/x86_64-linux-gnu
+mv debian/libfuse2-udeb/lib/*.so* debian/libfuse2-udeb/lib/x86_64-linux-gnu
+# adding initramfs-tools integration
+install -D -m 0755 debian/local/fuse.hook debian/fuse/usr/share/initramfs-tools/hooks/fuse
+# adding kmod integration
+make[1]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+   dh_installdocs
+	install -d debian/fuse/usr/share/doc/fuse
+	install -p -m0644 debian/copyright debian/fuse/usr/share/doc/fuse/copyright
+	install -d debian/libfuse2/usr/share/doc/libfuse2
+	install -p -m0644 debian/copyright debian/libfuse2/usr/share/doc/libfuse2/copyright
+	install -d debian/libfuse-dev/usr/share/doc/libfuse-dev
+	install -p -m0644 debian/copyright debian/libfuse-dev/usr/share/doc/libfuse-dev/copyright
+   dh_installchangelogs
+	install -p -m0644 debian/changelog debian/fuse/usr/share/doc/fuse/changelog.Debian
+	install -p -m0644 ./ChangeLog debian/fuse/usr/share/doc/fuse/changelog
+	install -p -m0644 debian/changelog debian/libfuse2/usr/share/doc/libfuse2/changelog.Debian
+	install -p -m0644 ./ChangeLog debian/libfuse2/usr/share/doc/libfuse2/changelog
+	install -p -m0644 debian/changelog debian/libfuse-dev/usr/share/doc/libfuse-dev/changelog.Debian
+	install -p -m0644 ./ChangeLog debian/libfuse-dev/usr/share/doc/libfuse-dev/changelog
+   dh_installexamples
+   dh_installman
+	man -l --recode UTF-8 ./debian/fuse/usr/share/man/man8/mount.fuse.8 > debian/fuse/usr/share/man/man8/mount.fuse.8.dh-new
+	man -l --recode UTF-8 ./debian/fuse/usr/share/man/man1/ulockmgr_server.1 > debian/fuse/usr/share/man/man1/ulockmgr_server.1.dh-new
+	man -l --recode UTF-8 ./debian/fuse/usr/share/man/man1/fusermount.1 > debian/fuse/usr/share/man/man1/fusermount.1.dh-new
+	mv debian/fuse/usr/share/man/man8/mount.fuse.8.dh-new debian/fuse/usr/share/man/man8/mount.fuse.8
+	chmod 0644 -- debian/fuse/usr/share/man/man8/mount.fuse.8
+	mv debian/fuse/usr/share/man/man1/ulockmgr_server.1.dh-new debian/fuse/usr/share/man/man1/ulockmgr_server.1
+	chmod 0644 -- debian/fuse/usr/share/man/man1/ulockmgr_server.1
+	mv debian/fuse/usr/share/man/man1/fusermount.1.dh-new debian/fuse/usr/share/man/man1/fusermount.1
+	chmod 0644 -- debian/fuse/usr/share/man/man1/fusermount.1
+   dh_lintian
+	install -d debian/fuse/usr/share/lintian/overrides
+	install -p -m0644 debian/fuse.lintian-overrides debian/fuse/usr/share/lintian/overrides/fuse
+   dh_perl
+	rm -f debian/fuse-udeb.debhelper.log debian/fuse.debhelper.log debian/libfuse-dev.debhelper.log debian/libfuse2-udeb.debhelper.log debian/libfuse2.debhelper.log
+   debian/rules override_dh_link
+make[1]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+# correcting symlink targets
+for LIB in debian/tmp/usr/lib/*/*.so; \
+do \
+	dh_link -plibfuse-dev lib/x86_64-linux-gnu/$(basename $(readlink ${LIB})) usr/lib/x86_64-linux-gnu/$(basename ${LIB}); \
+done
+	rm -f debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libfuse.so
+	ln -s libfuse.so.2.9.9 debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libfuse.so
+	rm -f debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libulockmgr.so
+	ln -s libulockmgr.so.1.0.1 debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libulockmgr.so
+	rm -f debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libfuse.so
+	ln -s /lib/x86_64-linux-gnu/libfuse.so.2.9.9 debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libfuse.so
+	rm -f debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libulockmgr.so
+	ln -s libulockmgr.so.1.0.1 debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libulockmgr.so
+	rm -f debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libfuse.so
+	ln -s /lib/x86_64-linux-gnu/libfuse.so.2.9.9 debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libfuse.so
+	rm -f debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libulockmgr.so
+	ln -s /lib/x86_64-linux-gnu/libulockmgr.so.1.0.1 debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libulockmgr.so
+dh_link --remaining-packages
+	rm -f debian/libfuse2/lib/x86_64-linux-gnu/libfuse.so.2
+	ln -s libfuse.so.2.9.9 debian/libfuse2/lib/x86_64-linux-gnu/libfuse.so.2
+	rm -f debian/libfuse2/lib/x86_64-linux-gnu/libulockmgr.so.1
+	ln -s libulockmgr.so.1.0.1 debian/libfuse2/lib/x86_64-linux-gnu/libulockmgr.so.1
+	rm -f debian/libfuse2-udeb/lib/x86_64-linux-gnu/libfuse.so.2
+	ln -s libfuse.so.2.9.9 debian/libfuse2-udeb/lib/x86_64-linux-gnu/libfuse.so.2
+	rm -f debian/libfuse2-udeb/lib/x86_64-linux-gnu/libulockmgr.so.1
+	ln -s libulockmgr.so.1.0.1 debian/libfuse2-udeb/lib/x86_64-linux-gnu/libulockmgr.so.1
+make[1]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+   dh_strip_nondeterminism
+	rm -f debian/fuse-udeb.debhelper.log debian/fuse.debhelper.log debian/libfuse-dev.debhelper.log debian/libfuse2-udeb.debhelper.log debian/libfuse2.debhelper.log
+   debian/rules override_dh_compress
+make[1]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+dh_compress -Xusr/share/doc/libfuse-dev/examples
+	cd debian/fuse
+	cd debian/libfuse2
+	cd debian/libfuse-dev
+	cd debian/fuse-udeb
+	cd debian/libfuse2-udeb
+	chmod a-x usr/share/doc/fuse/changelog usr/share/doc/fuse/changelog.Debian usr/share/man/man1/fusermount.1 usr/share/man/man1/ulockmgr_server.1 usr/share/man/man8/mount.fuse.8
+	cd '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+	cd '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+	chmod a-x usr/share/doc/libfuse-dev/changelog usr/share/doc/libfuse-dev/changelog.Debian
+	chmod a-x usr/share/doc/libfuse2/changelog usr/share/doc/libfuse2/changelog.Debian
+	gzip -9nf usr/share/doc/fuse/changelog usr/share/doc/fuse/changelog.Debian usr/share/man/man1/fusermount.1 usr/share/man/man1/ulockmgr_server.1 usr/share/man/man8/mount.fuse.8
+	gzip -9nf usr/share/doc/libfuse2/changelog usr/share/doc/libfuse2/changelog.Debian
+	gzip -9nf usr/share/doc/libfuse-dev/changelog usr/share/doc/libfuse-dev/changelog.Debian
+	cd '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+	cd '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+	cd '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+make[1]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+	rm -f debian/fuse-udeb.debhelper.log debian/fuse.debhelper.log debian/libfuse-dev.debhelper.log debian/libfuse2-udeb.debhelper.log debian/libfuse2.debhelper.log
+   debian/rules override_dh_fixperms
+make[1]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+dh_fixperms
+	find debian/fuse -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/libfuse2 -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/libfuse-dev -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/fuse-udeb -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/libfuse2-udeb -true -print0 2>/dev/null | xargs -0r chown --no-dereference 0:0
+	find debian/libfuse2 ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/fuse ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/libfuse-dev ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/fuse-udeb ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/libfuse2-udeb ! -type l -a -true -a -true -print0 2>/dev/null | xargs -0r chmod go=rX,u+rw,a-s
+	find debian/libfuse2/usr/share/doc -type f -a -true -a ! -regex 'debian/libfuse2/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/fuse-udeb -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/fuse/usr/share/doc -type f -a -true -a ! -regex 'debian/fuse/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libfuse-dev/usr/share/doc -type f -a -true -a ! -regex 'debian/libfuse-dev/usr/share/doc/[^/]*/examples/.*' -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libfuse2-udeb -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/fuse-udeb/bin debian/fuse-udeb/sbin -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/fuse/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/libfuse2/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/libfuse-dev/usr/share/doc -type d -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0755
+	find debian/fuse/usr/share/man debian/fuse/usr/share/lintian/overrides -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libfuse2 -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libfuse-dev/usr/include -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/fuse -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/libfuse-dev -type f \( -name '*.so.*' -o -name '*.so' -o -name '*.la' -o -name '*.a' -o -name '*.js' -o -name '*.css' -o -name '*.scss' -o -name '*.sass' -o -name '*.jpeg' -o -name '*.jpg' -o -name '*.png' -o -name '*.gif' -o -name '*.cmxs' \) -a -true -a -true -print0 2>/dev/null | xargs -0r chmod 0644
+	find debian/fuse/bin debian/fuse/sbin -type f -a -true -a -true -print0 2>/dev/null | xargs -0r chmod a+x
+	find debian/libfuse-dev/usr/lib -type f -name '*.ali' -a -true -a -true -print0 2>/dev/null | xargs -0r chmod uga-w
+make[1]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+   dh_missing
+   dh_strip
+	strip --remove-section=.comment --remove-section=.note debian/fuse-udeb/sbin/mount.fuse
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libfuse2-udeb/lib/x86_64-linux-gnu/libulockmgr.so.1.0.1
+	strip --strip-debug --remove-section=.comment --remove-section=.note --enable-deterministic-archives debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libulockmgr.a
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	strip --remove-section=.comment --remove-section=.note debian/fuse-udeb/bin/ulockmgr_server
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libfuse2-udeb/lib/x86_64-linux-gnu/libfuse.so.2.9.9
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	strip --strip-debug --remove-section=.comment --remove-section=.note --enable-deterministic-archives debian/libfuse-dev/usr/lib/x86_64-linux-gnu/libfuse.a
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	strip --remove-section=.comment --remove-section=.note debian/fuse-udeb/bin/fusermount
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/libfuse2/dbgsym-root/usr/lib/debug/.build-id/88
+	objcopy --only-keep-debug --compress-debug-sections debian/libfuse2/lib/x86_64-linux-gnu/libulockmgr.so.1.0.1 debian/.debhelper/libfuse2/dbgsym-root/usr/lib/debug/.build-id/88/530b1ed1cc6fcc6479dd3c9489fd3a0f453b67.debug
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/80
+	objcopy --only-keep-debug --compress-debug-sections debian/fuse/sbin/mount.fuse debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/80/938d42851c8f5c019078cf08294783720d0bae.debug
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	chmod 0644 -- debian/.debhelper/libfuse2/dbgsym-root/usr/lib/debug/.build-id/88/530b1ed1cc6fcc6479dd3c9489fd3a0f453b67.debug
+	chown 0:0 -- debian/.debhelper/libfuse2/dbgsym-root/usr/lib/debug/.build-id/88/530b1ed1cc6fcc6479dd3c9489fd3a0f453b67.debug
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libfuse2/lib/x86_64-linux-gnu/libulockmgr.so.1.0.1
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	chmod 0644 -- debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/80/938d42851c8f5c019078cf08294783720d0bae.debug
+	chown 0:0 -- debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/80/938d42851c8f5c019078cf08294783720d0bae.debug
+	strip --remove-section=.comment --remove-section=.note debian/fuse/sbin/mount.fuse
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	objcopy --add-gnu-debuglink debian/.debhelper/libfuse2/dbgsym-root/usr/lib/debug/.build-id/88/530b1ed1cc6fcc6479dd3c9489fd3a0f453b67.debug debian/libfuse2/lib/x86_64-linux-gnu/libulockmgr.so.1.0.1
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	objcopy --add-gnu-debuglink debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/80/938d42851c8f5c019078cf08294783720d0bae.debug debian/fuse/sbin/mount.fuse
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/libfuse2/dbgsym-root/usr/lib/debug/.build-id/c9
+	objcopy --only-keep-debug --compress-debug-sections debian/libfuse2/lib/x86_64-linux-gnu/libfuse.so.2.9.9 debian/.debhelper/libfuse2/dbgsym-root/usr/lib/debug/.build-id/c9/129f873c35919577e738c6d1e2b91982b2ca3f.debug
+	install -d debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/03
+	objcopy --only-keep-debug --compress-debug-sections debian/fuse/bin/ulockmgr_server debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/03/2dfdc691ad3ccf51337cd6d7be16052c137a59.debug
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	chmod 0644 -- debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/03/2dfdc691ad3ccf51337cd6d7be16052c137a59.debug
+	chown 0:0 -- debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/03/2dfdc691ad3ccf51337cd6d7be16052c137a59.debug
+	strip --remove-section=.comment --remove-section=.note debian/fuse/bin/ulockmgr_server
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	objcopy --add-gnu-debuglink debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/03/2dfdc691ad3ccf51337cd6d7be16052c137a59.debug debian/fuse/bin/ulockmgr_server
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/ef
+	objcopy --only-keep-debug --compress-debug-sections debian/fuse/bin/fusermount debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/ef/00324dd0c8d4ffcb2e41361a8ff59700c6d3a9.debug
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	chmod 0644 -- debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/ef/00324dd0c8d4ffcb2e41361a8ff59700c6d3a9.debug
+	chown 0:0 -- debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/ef/00324dd0c8d4ffcb2e41361a8ff59700c6d3a9.debug
+	strip --remove-section=.comment --remove-section=.note debian/fuse/bin/fusermount
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	objcopy --add-gnu-debuglink debian/.debhelper/fuse/dbgsym-root/usr/lib/debug/.build-id/ef/00324dd0c8d4ffcb2e41361a8ff59700c6d3a9.debug debian/fuse/bin/fusermount
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/fuse/dbgsym-root/usr/share/doc
+	ln -s fuse debian/.debhelper/fuse/dbgsym-root/usr/share/doc/fuse-dbgsym
+	chmod 0644 -- debian/.debhelper/libfuse2/dbgsym-root/usr/lib/debug/.build-id/c9/129f873c35919577e738c6d1e2b91982b2ca3f.debug
+	chown 0:0 -- debian/.debhelper/libfuse2/dbgsym-root/usr/lib/debug/.build-id/c9/129f873c35919577e738c6d1e2b91982b2ca3f.debug
+	strip --remove-section=.comment --remove-section=.note --strip-unneeded debian/libfuse2/lib/x86_64-linux-gnu/libfuse.so.2.9.9
+strip: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	objcopy --add-gnu-debuglink debian/.debhelper/libfuse2/dbgsym-root/usr/lib/debug/.build-id/c9/129f873c35919577e738c6d1e2b91982b2ca3f.debug debian/libfuse2/lib/x86_64-linux-gnu/libfuse.so.2.9.9
+objcopy: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/.debhelper/libfuse2/dbgsym-root/usr/share/doc
+	ln -s libfuse2 debian/.debhelper/libfuse2/dbgsym-root/usr/share/doc/libfuse2-dbgsym
+	rm -f debian/fuse-udeb.debhelper.log debian/fuse.debhelper.log debian/libfuse-dev.debhelper.log debian/libfuse2-udeb.debhelper.log debian/libfuse2.debhelper.log
+   debian/rules override_dh_makeshlibs
+make[1]: Entering directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+dh_makeshlibs -s --add-udeb=libfuse2-udeb
+dh_makeshlibs: -s/--same-arch is deprecated; please use -a/--arch instead
+dh_makeshlibs: This feature will be removed in compat 12.
+	rm -f debian/fuse/DEBIAN/shlibs
+	rm -f debian/libfuse2/DEBIAN/shlibs
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+	install -d debian/libfuse2/DEBIAN
+	echo "libfuse 2 libfuse2" >> debian/libfuse2/DEBIAN/shlibs
+	echo "libulockmgr 1 libfuse2" >> debian/libfuse2/DEBIAN/shlibs
+	echo "udeb: libfuse 2 libfuse2-udeb" >> debian/libfuse2/DEBIAN/shlibs
+	echo "udeb: libulockmgr 1 libfuse2-udeb" >> debian/libfuse2/DEBIAN/shlibs
+	chmod 0644 -- debian/libfuse2/DEBIAN/shlibs
+	chown 0:0 -- debian/libfuse2/DEBIAN/shlibs
+	dpkg-gensymbols -plibfuse2 -Idebian/libfuse2.symbols -Pdebian/libfuse2 -edebian/libfuse2/lib/x86_64-linux-gnu/libfuse.so.2.9.9 -edebian/libfuse2/lib/x86_64-linux-gnu/libulockmgr.so.1.0.1
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-gensymbols: warning: some new symbols appeared in the symbols file: see diff output below
+dpkg-gensymbols: warning: debian/libfuse2/DEBIAN/symbols doesn't match completely debian/libfuse2.symbols
+--- debian/libfuse2.symbols (libfuse2_2.9.9-1_amd64)
++++ dpkg-gensymbolsM6pCR4	2019-01-14 03:48:36.069457105 +0100
+@@ -19,4 +19,7 @@
+  (arch=linux-any)fuse_main@Base 2.5
+  (arch=linux-any)fuse_new@Base 2.5
+ libulockmgr.so.1 #PACKAGE# #MINVER#
++ __cacheSize@Base 2.9.9-1
++ __intel_ssse3_memcpy@Base 2.9.9-1
++ _intel_fast_memcmp@Base 2.9.9-1
+  ulockmgr_op@Base 2.6
+	mv debian/.debhelper/generated/libfuse2/triggers.new debian/.debhelper/generated/libfuse2/triggers
+	rm -f debian/libfuse-dev/DEBIAN/shlibs
+make[1]: Leaving directory '/dev/shm/RPM4/rpm/deps/libarchive/libext2fs-dev/fuse/fuse-2.9.9'
+   dh_shlibdeps
+	dpkg-shlibdeps -Tdebian/libfuse2.substvars debian/libfuse2/lib/x86_64-linux-gnu/libfuse.so.2.9.9 debian/libfuse2/lib/x86_64-linux-gnu/libulockmgr.so.1.0.1
+	install -d debian/libfuse2-udeb/DEBIAN
+	dpkg-shlibdeps -Tdebian/libfuse2-udeb.substvars -tudeb debian/libfuse2-udeb/lib/x86_64-linux-gnu/libfuse.so.2.9.9 debian/libfuse2-udeb/lib/x86_64-linux-gnu/libulockmgr.so.1.0.1
+	install -d debian/fuse-udeb/DEBIAN
+	dpkg-shlibdeps -Tdebian/fuse-udeb.substvars -tudeb debian/fuse-udeb/sbin/mount.fuse debian/fuse-udeb/bin/fusermount debian/fuse-udeb/bin/ulockmgr_server
+	install -d debian/fuse/DEBIAN
+	dpkg-shlibdeps -Tdebian/fuse.substvars debian/fuse/sbin/mount.fuse debian/fuse/bin/fusermount debian/fuse/bin/ulockmgr_server
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+objdump: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+dpkg-shlibdeps: warning: can't extract name and version from library name 'libiomp5.so'
+   dh_installdeb
+	sed s/\#DEBHELPER\#// debian/fuse.postinst > debian/fuse/DEBIAN/postinst
+	chmod 0755 -- debian/fuse/DEBIAN/postinst
+	chown 0:0 -- debian/fuse/DEBIAN/postinst
+	sed s/\#DEBHELPER\#// debian/fuse.postrm > debian/fuse/DEBIAN/postrm
+	chmod 0755 -- debian/fuse/DEBIAN/postrm
+	chown 0:0 -- debian/fuse/DEBIAN/postrm
+	find debian/fuse/etc -type f -printf '/etc/%P
+' | LC_ALL=C sort >> debian/fuse/DEBIAN/conffiles
+	chmod 0644 -- debian/fuse/DEBIAN/conffiles
+	chown 0:0 -- debian/fuse/DEBIAN/conffiles
+	install -p -m0644 debian/.debhelper/generated/libfuse2/triggers debian/libfuse2/DEBIAN/triggers
+	install -d debian/libfuse-dev/DEBIAN
+   dh_gencontrol
+	echo misc:Depends= >> debian/libfuse-dev.substvars
+	echo misc:Pre-Depends= >> debian/libfuse-dev.substvars
+	dpkg-gencontrol -plibfuse-dev -ldebian/changelog -Tdebian/libfuse-dev.substvars -Pdebian/libfuse-dev
+	echo misc:Depends= >> debian/fuse-udeb.substvars
+	echo misc:Pre-Depends= >> debian/fuse-udeb.substvars
+	dpkg-gencontrol -pfuse-udeb -ldebian/changelog -Tdebian/fuse-udeb.substvars -Pdebian/fuse-udeb
+	echo misc:Depends= >> debian/libfuse2-udeb.substvars
+	echo misc:Pre-Depends= >> debian/libfuse2-udeb.substvars
+	dpkg-gencontrol -plibfuse2-udeb -ldebian/changelog -Tdebian/libfuse2-udeb.substvars -Pdebian/libfuse2-udeb
+	echo misc:Depends= >> debian/fuse.substvars
+	echo misc:Pre-Depends= >> debian/fuse.substvars
+	install -d debian/.debhelper/fuse/dbgsym-root/DEBIAN
+	dpkg-gencontrol -pfuse -ldebian/changelog -Tdebian/fuse.substvars -Pdebian/.debhelper/fuse/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -DAuto-Built-Package=debug-symbols -DPackage=fuse-dbgsym "-DDepends=fuse (= \${binary:Version})" "-DDescription=debug symbols for fuse" "-DBuild-Ids=032dfdc691ad3ccf51337cd6d7be16052c137a59 80938d42851c8f5c019078cf08294783720d0bae ef00324dd0c8d4ffcb2e41361a8ff59700c6d3a9" -DSection=debug -UMulti-Arch -UReplaces -UBreaks
+	echo misc:Depends= >> debian/libfuse2.substvars
+	echo misc:Pre-Depends= >> debian/libfuse2.substvars
+	install -d debian/.debhelper/libfuse2/dbgsym-root/DEBIAN
+	dpkg-gencontrol -plibfuse2 -ldebian/changelog -Tdebian/libfuse2.substvars -Pdebian/.debhelper/libfuse2/dbgsym-root -UPre-Depends -URecommends -USuggests -UEnhances -UProvides -UEssential -UConflicts -DPriority=optional -UHomepage -UImportant -DAuto-Built-Package=debug-symbols -DPackage=libfuse2-dbgsym "-DDepends=libfuse2 (= \${binary:Version})" "-DDescription=debug symbols for libfuse2" "-DBuild-Ids=88530b1ed1cc6fcc6479dd3c9489fd3a0f453b67 c9129f873c35919577e738c6d1e2b91982b2ca3f" -DSection=debug -UReplaces -UBreaks
+	chmod 0644 -- debian/libfuse2-udeb/DEBIAN/control
+	chown 0:0 -- debian/libfuse2-udeb/DEBIAN/control
+	chmod 0644 -- debian/fuse-udeb/DEBIAN/control
+	chown 0:0 -- debian/fuse-udeb/DEBIAN/control
+	chmod 0644 -- debian/libfuse-dev/DEBIAN/control
+	chown 0:0 -- debian/libfuse-dev/DEBIAN/control
+	chmod 0644 -- debian/.debhelper/fuse/dbgsym-root/DEBIAN/control
+	chown 0:0 -- debian/.debhelper/fuse/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -pfuse -ldebian/changelog -Tdebian/fuse.substvars -Pdebian/fuse -UMulti-Arch
+	chmod 0644 -- debian/.debhelper/libfuse2/dbgsym-root/DEBIAN/control
+	chown 0:0 -- debian/.debhelper/libfuse2/dbgsym-root/DEBIAN/control
+	dpkg-gencontrol -plibfuse2 -ldebian/changelog -Tdebian/libfuse2.substvars -Pdebian/libfuse2
+	chmod 0644 -- debian/fuse/DEBIAN/control
+	chown 0:0 -- debian/fuse/DEBIAN/control
+	chmod 0644 -- debian/libfuse2/DEBIAN/control
+	chown 0:0 -- debian/libfuse2/DEBIAN/control
+   dh_md5sums
+	cd debian/libfuse2 >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	cd debian/fuse >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	cd debian/libfuse-dev >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/fuse/DEBIAN/md5sums
+	chown 0:0 -- debian/fuse/DEBIAN/md5sums
+	chmod 0644 -- debian/libfuse2/DEBIAN/md5sums
+	chown 0:0 -- debian/libfuse2/DEBIAN/md5sums
+	cd debian/.debhelper/fuse/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	cd debian/.debhelper/libfuse2/dbgsym-root >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\@@) { s/\\\\/\\/g; }' > DEBIAN/md5sums
+	chmod 0644 -- debian/libfuse-dev/DEBIAN/md5sums
+	chown 0:0 -- debian/libfuse-dev/DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/fuse/dbgsym-root/DEBIAN/md5sums
+	chown 0:0 -- debian/.debhelper/fuse/dbgsym-root/DEBIAN/md5sums
+	chmod 0644 -- debian/.debhelper/libfuse2/dbgsym-root/DEBIAN/md5sums
+	chown 0:0 -- debian/.debhelper/libfuse2/dbgsym-root/DEBIAN/md5sums
+   dh_builddeb
+	dpkg-deb --build debian/fuse ..
+	dpkg-deb --build debian/.debhelper/fuse/dbgsym-root ..
+	dpkg-deb --build debian/libfuse2 ..
+	dpkg-deb --build debian/.debhelper/libfuse2/dbgsym-root ..
+	dpkg-deb --build debian/libfuse-dev ..
+dpkg-deb: building package 'fuse' in '../fuse_2.9.9-1_amd64.deb'.
+dpkg-deb: building package 'fuse-dbgsym' in '../fuse-dbgsym_2.9.9-1_amd64.deb'.
+dpkg-deb: building package 'libfuse2' in '../libfuse2_2.9.9-1_amd64.deb'.
+dpkg-deb: building package 'libfuse2-dbgsym' in '../libfuse2-dbgsym_2.9.9-1_amd64.deb'.
+dpkg-deb: building package 'libfuse-dev' in '../libfuse-dev_2.9.9-1_amd64.deb'.
+	install -d debian/.debhelper/scratch-space/build-fuse-udeb
+	dpkg-deb -z6 -Zxz -Sextreme --build debian/fuse-udeb debian/.debhelper/scratch-space/build-fuse-udeb
+	install -d debian/.debhelper/scratch-space/build-libfuse2-udeb
+	dpkg-deb -z6 -Zxz -Sextreme --build debian/libfuse2-udeb debian/.debhelper/scratch-space/build-libfuse2-udeb
+dpkg-deb: building package 'libfuse2-udeb' in 'debian/.debhelper/scratch-space/build-libfuse2-udeb/libfuse2-udeb_2.9.9-1_amd64.deb'.
+dpkg-deb: building package 'fuse-udeb' in 'debian/.debhelper/scratch-space/build-fuse-udeb/fuse-udeb_2.9.9-1_amd64.deb'.
+	Renaming fuse-udeb_2.9.9-1_amd64.deb to fuse-udeb_2.9.9-1_amd64.udeb
+	mv debian/.debhelper/scratch-space/build-fuse-udeb/fuse-udeb_2.9.9-1_amd64.deb ../fuse-udeb_2.9.9-1_amd64.udeb
+	Renaming libfuse2-udeb_2.9.9-1_amd64.deb to libfuse2-udeb_2.9.9-1_amd64.udeb
+	mv debian/.debhelper/scratch-space/build-libfuse2-udeb/libfuse2-udeb_2.9.9-1_amd64.deb ../libfuse2-udeb_2.9.9-1_amd64.udeb
+FAKEROOTKEY=265265371 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules binary
+ dpkg-genbuildinfo --build=binary
+ dpkg-genchanges --build=binary >../fuse_2.9.9-1_amd64.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
+Now running lintian fuse_2.9.9-1_amd64.changes ...
+strings: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+strings: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+strings: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+strings: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+E: libfuse2: symbols-file-contains-current-version-with-debian-revision on symbol __cacheSize@Base and 2 others
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+W: fuse: hardening-no-pie bin/fusermount
+W: fuse: hardening-no-pie bin/ulockmgr_server
+W: fuse: hardening-no-pie sbin/mount.fuse
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+W: fuse: command-with-path-in-maintainer-script postinst:28 /sbin/lsmod
+W: fuse: command-with-path-in-maintainer-script postinst:39 /usr/sbin/update-initramfs
+W: fuse: command-with-path-in-maintainer-script postrm:7 /usr/sbin/update-initramfs
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+/usr/bin/ar: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+N: 0 tags overridden; 1 unused override
+Finished running lintian.

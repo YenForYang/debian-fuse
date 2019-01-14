@@ -1,0 +1,3 @@
+debian/tmp/bin/fusermount
+debian/tmp/bin/ulockmgr_server
+debian/tmp/sbin/mount.fuse

@@ -1,0 +1,6 @@
+debian/tmp/usr/include
+debian/tmp/usr/lib/x86_64-linux-gnu/pkgconfig
+debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.a
+debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.a
+debian/tmp/usr/lib/x86_64-linux-gnu/libfuse.so
+debian/tmp/usr/lib/x86_64-linux-gnu/libulockmgr.so

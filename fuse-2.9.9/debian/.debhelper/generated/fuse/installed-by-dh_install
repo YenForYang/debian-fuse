@@ -1,0 +1,7 @@
+debian/tmp/bin/fusermount
+debian/tmp/bin/ulockmgr_server
+debian/tmp/sbin/mount.fuse
+debian/tmp/usr/share/man/man1/fusermount.1
+debian/tmp/usr/share/man/man1/ulockmgr_server.1
+debian/tmp/usr/share/man/man8/mount.fuse.8
+./debian/local/fuse.conf

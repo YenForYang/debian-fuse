@@ -1,0 +1,16 @@
+1b253c64883a7e7cba57f093486fba32  usr/include/fuse.h
+95de7c6ff68b80c6e607899f52050250  usr/include/fuse/cuse_lowlevel.h
+6a4943afba07a990dfddd3f0e3586e6b  usr/include/fuse/fuse.h
+87528e186c21f94f983b1473a60b6ff7  usr/include/fuse/fuse_common.h
+f65bc51636e2f2450069b958c48deb07  usr/include/fuse/fuse_common_compat.h
+b83d0aba96aff4ae4026f55e0e15ae58  usr/include/fuse/fuse_compat.h
+6b5c66de833c2193bd31b1d83e047cbf  usr/include/fuse/fuse_lowlevel.h
+d386a51e50a57567b5cbf8b100f867eb  usr/include/fuse/fuse_lowlevel_compat.h
+b8ac404bd7cd094f25ea5320ed0d3127  usr/include/fuse/fuse_opt.h
+661dc95870be0e4b84c65f9ae0b827c8  usr/include/ulockmgr.h
+61089c3d2b4dfe46e722aece954e6fe5  usr/lib/x86_64-linux-gnu/libfuse.a
+fb7d4a37f5f6e35abcf9e99e6144ccd5  usr/lib/x86_64-linux-gnu/libulockmgr.a
+83342fcf29d40d0504687fb57b7b6e1f  usr/lib/x86_64-linux-gnu/pkgconfig/fuse.pc
+1d505039f09b541d22a7be37c19775cb  usr/share/doc/libfuse-dev/changelog.Debian.gz
+78ce8cda89c7c0821e4eb90a3b9fc71c  usr/share/doc/libfuse-dev/changelog.gz
+abe92cd8e2a0fda8776d82e1c7f9ada1  usr/share/doc/libfuse-dev/copyright

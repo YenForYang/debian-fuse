@@ -1,0 +1,50 @@
+Format: 1.8
+Date: Mon, 07 Jan 2019 20:32:01 +0000
+Source: fuse
+Binary: fuse libfuse2 libfuse-dev fuse-udeb libfuse2-udeb
+Built-For-Profiles: nobiarch nocheck nodoc
+Architecture: amd64
+Version: 2.9.9-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Changed-By: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Description:
+ fuse       - Filesystem in Userspace
+ fuse-udeb  - Filesystem in Userspace (udeb)
+ libfuse-dev - Filesystem in Userspace (development)
+ libfuse2   - Filesystem in Userspace (library)
+ libfuse2-udeb - Filesystem in Userspace (library) (udeb)
+Changes:
+ fuse (2.9.9-1) unstable; urgency=medium
+ .
+   * New upstream release.
+   * Don't use custom compression settings for packaging.
+   * Update Standards-Version to 4.3.0 .
+Checksums-Sha1:
+ 33e505898711c7b581a356a594866091c3c02b21 32044 fuse-dbgsym_2.9.9-1_amd64.deb
+ fabc77aa65bb7d4af0b7382e74e6cf72d2d78d9b 39448 fuse-udeb_2.9.9-1_amd64.udeb
+ 032bceddab8fe76dcbfe4a1fd863bfbba005e4e5 7015 fuse_2.9.9-1_amd64.buildinfo
+ 6e84146a7dae387a79edcb4cff6b8ae46ef9cf02 93780 fuse_2.9.9-1_amd64.deb
+ 2ef4507b92e7ba809f3b5ad3ebc6fec7fb9cf774 555660 libfuse-dev_2.9.9-1_amd64.deb
+ 683445f13f762c3ec62a186ce222171ab2dbb2a4 347580 libfuse2-dbgsym_2.9.9-1_amd64.deb
+ c6fce3d7ea815973553151e01d9e6021d3a8eaf9 154640 libfuse2-udeb_2.9.9-1_amd64.udeb
+ 587e9d03c7877ada206e4e8704ab4ecf7b499c89 203688 libfuse2_2.9.9-1_amd64.deb
+Checksums-Sha256:
+ 31b519a0ba7227b88bcd4955ee61e4352ef8665383044c3cfeb66777ec62b850 32044 fuse-dbgsym_2.9.9-1_amd64.deb
+ d451b747b0fdacae8f0e142cf23e0d55bed99e14d3d12583623c31a68a8f9e14 39448 fuse-udeb_2.9.9-1_amd64.udeb
+ 7f2e28f4a34e491c347c34bdefabae01d22a0ae8b0600b7ecb3b1a4cf4caefb4 7015 fuse_2.9.9-1_amd64.buildinfo
+ 8df6413de39046a71f36819236b7e2232243dee6c40be59e96d397ce0a47ddea 93780 fuse_2.9.9-1_amd64.deb
+ 3d493c7679f1fcbd71825604f560848134cdec161bc2f8d8e1ceb0e13b5efd8f 555660 libfuse-dev_2.9.9-1_amd64.deb
+ 0228799d3b310bc0d28963555a16a3ef2f5f0c46537088b4135f9d6b1c2bbc7e 347580 libfuse2-dbgsym_2.9.9-1_amd64.deb
+ 637583ffce7a2afb8102c4fcc2e6e3fb677cc5de9e3d405ebcbba862912ee190 154640 libfuse2-udeb_2.9.9-1_amd64.udeb
+ de796808fd2db73704c81c306befb3717734d7ce5b76831b4826fe0844c243f6 203688 libfuse2_2.9.9-1_amd64.deb
+Files:
+ 00f242b54a9a2ea87bb36fd59fcd22a1 32044 debug optional fuse-dbgsym_2.9.9-1_amd64.deb
+ 8493396ba59fc41ec8e1190bdc7a5480 39448 debian-installer optional fuse-udeb_2.9.9-1_amd64.udeb
+ ddc7921cc9bc61b14580999a0b1f63bb 7015 utils optional fuse_2.9.9-1_amd64.buildinfo
+ 2a36f493b95484fa32c0f99069799f00 93780 utils optional fuse_2.9.9-1_amd64.deb
+ 14c56b1c41e24e4c49d45fff0555fa4f 555660 libdevel optional libfuse-dev_2.9.9-1_amd64.deb
+ 6428aeb96f52b26c2cb206152e42cbc7 347580 debug optional libfuse2-dbgsym_2.9.9-1_amd64.deb
+ 590efe66bf855e97cf61d921496ec72a 154640 debian-installer optional libfuse2-udeb_2.9.9-1_amd64.udeb
+ ac3eabaa356e3b3aa11bd0ee9552400f 203688 libs optional libfuse2_2.9.9-1_amd64.deb

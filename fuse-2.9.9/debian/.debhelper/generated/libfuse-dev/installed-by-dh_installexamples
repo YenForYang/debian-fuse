@@ -1,0 +1,12 @@
+./example/cusexmp.c
+./example/fioc.c
+./example/fioclient.c
+./example/fsel.c
+./example/fselclient.c
+./example/fusexmp.c
+./example/fusexmp_fh.c
+./example/hello.c
+./example/hello_ll.c
+./example/null.c
+./example/fioc.h
+./debian/examples/Makefile

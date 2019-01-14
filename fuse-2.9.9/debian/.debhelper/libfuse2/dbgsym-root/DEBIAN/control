@@ -1,0 +1,13 @@
+Package: libfuse2-dbgsym
+Source: fuse
+Version: 2.9.9-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Laszlo Boszormenyi (GCS) <gcs@debian.org>
+Installed-Size: 390
+Depends: libfuse2 (= 2.9.9-1)
+Section: debug
+Priority: optional
+Multi-Arch: same
+Description: debug symbols for libfuse2
+Build-Ids: 88530b1ed1cc6fcc6479dd3c9489fd3a0f453b67 c9129f873c35919577e738c6d1e2b91982b2ca3f
